@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Belanosima', sans-serif;
+
+   &::selection {
+      background-color: #bcd2ff;
+      color: black;
+   }
+}
+
+body {
+   background-color: #050b1c;
+   background-image: url('/assets/texture.webp');
+}
+
+.container {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+
+   h1 {
+      font-size: 4.5rem;
+      color: #dae7ff;
+   }
+
+   p {
+      font-size: 1.2rem;
+      color: rgb(158, 158, 158);
+
+      span {
+         color: #bcd2ff;
+         cursor: pointer;
+      }
+   }
+
+   input,
+   button {
+      width: 300px;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: 1px solid white;
+      border-radius: 10px;
+   }
+
+   button {
+      cursor: pointer;
+      background-color: #bcd2ff;
+      color: black;
+   }
+}
