@@ -3,31 +3,36 @@
 
 <head>
    <meta charset="UTF-8">
-   <link rel="stylesheet" href="dist/css/style.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/dist/css/style.css">
+   <link rel="shortcut icon" href="assets/letter-j.png" type="image/x-icon">
    <title>Askify</title>
 </head>
 
 <body>
    <div class="container">
-      <h1>Askify</h1>
-      <p>Discover. Engage. Askify.</p>
-      <input type="text" placeholder="Username">
-      <input type="text" placeholder="Password">
-      <button>Log in</button>
-      <p style="margin-top: 20px;">Don't have an account? <span>Register now</span></p>
-   </div>
-   <div class="register">
-      <div class="register_content">
-         <span>X</span>
-         <h1>Create a new account</h1>
-         <input type="text" placeholder="Name">
-         <input type="text" placeholder="Surname">
-         <input type="text" placeholder="Username">
+      <div class="content">
+         <h1>Ask<span>ify</span></h1>
+         <p> Find Answers, Just ask away! The epitome of simplicity. Effortlessly discover knowledge with ease.</p>
+         <input type="text" placeholder="Username" style="margin-top: 20px;">
          <input type="text" placeholder="Password">
-         <button>Create new account</button>
+         <button>Log in</button>
+         <p style="margin-top: 20px;">Don't have an account?<span id="create_account_link"> Register now.</span></p>
       </div>
    </div>
+   <div class="register">
+      <button id="close_div">X</button>
+      <input type="text" id="real_name" placeholder="Name">
+      <p class="error_messages">error</p>
+      <input type="text" id="surname" placeholder="Surname">
+      <p class="error_messages">error</p>
+      <input type="text" id="username" placeholder="Username">
+      <p class="error_messages">error</p>
+      <input type="text" id="password" placeholder="Password">
+      <p class="error_messages">error</p>
+      <button id="create_account_button">Register</button>
+   </div>
+   <script type="module" src="index.js"></script>
 </body>
 
 </html>

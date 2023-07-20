@@ -1,23 +1,351 @@
-@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700;800&display=swap');
 
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: 'Belanosima', sans-serif;
+}
 
-   &::selection {
-      background-color: #bcd2ff;
-      color: black;
-   }
+*::selection {
+   background-color: rgb(255, 255, 255);
+   color: black;
 }
 
 body {
-   background-color: #1a1a1a;
-   background-image: url('/assets/texture.webp');
+   background-color: #f74141;
+}
+
+* {
+   scrollbar-width: thin;
+   scrollbar-color: #ff7b00 transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+   width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+   background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+   background-color: #ff7b00;
+   border-radius: 20px;
+   border: 3px solid transparent;
+}
+
+body::-webkit-scrollbar {
+   width: 12px;
+   /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+   background: transparent;
+   /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+   background-color: #ff7b00;
+   /* color of the scroll thumb */
+   border-radius: 20px;
+   /* roundness of the scroll thumb */
+   border: 3px solid transparent;
+   /* creates padding around scroll thumb */
 }
 
 .container {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      h1 {
+         font-size: 3rem;
+         font-family: 'Gasoek One', sans-serif;
+         color: #012443;
+
+         span {
+            color: #F8CB2E;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #012443;
+         }
+      }
+
+      p {
+         font-family: 'Dosis', sans-serif;
+         font-size: 1.2rem;
+         font-weight: 500;
+         width: 38ch;
+         text-align: center;
+         color: #1a1a1a;
+
+         span {
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+         }
+      }
+
+      input {
+         font-family: 'Dosis', sans-serif;
+
+         width: 300px;
+         padding: 4px;
+         margin-top: 10px;
+         border-radius: 5px;
+         background-color: #012443;
+         border: 1px solid black;
+         font-weight: 500;
+         font-size: 1rem;
+         color: white;
+      }
+
+      button {
+         font-family: 'Dosis', sans-serif;
+         font-size: 1rem;
+         width: 300px;
+         padding: 4px;
+         margin-top: 10px;
+         background-color: #F8CB2E;
+         cursor: pointer;
+         border: 1px solid black;
+         font-weight: 500;
+         border-radius: 5px;
+      }
+   }
+}
+
+.room_container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   aside {
+      width: 75px;
+      height: 100vh;
+      background-color: #012443;
+      border-right: 5px solid #f79494;
+
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+
+      img {
+         cursor: pointer;
+      }
+   }
+
+   main {
+      height: 100vh;
+      width: 100%;
+      overflow-y: scroll;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      #content_div {
+         font-family: 'Dosis', sans-serif;
+         width: 350px;
+         background-color: #F8CB2E;
+         border: 5px solid #f79494;
+         border-radius: 40px;
+         height: 400px;
+         margin-top: 50px;
+
+         #div_header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: rgb(255, 123, 0);
+            justify-content: space-between;
+            border-radius: 35px 35px 0 0;
+            border-bottom: 5px solid #f79494;
+
+            p {
+               color: white;
+               font-size: 1.1rem;
+               font-weight: bold;
+            }
+         }
+
+         #q_div {
+            border-bottom: 5px solid #f79494;
+            padding: 10px;
+            height: 80px;
+            overflow-y: scroll;
+            text-align: center;
+         }
+
+         #c_div {
+            border-bottom: 5px solid #f79494;
+
+            #post_comment {
+               width: 100%;
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               border-bottom: 5px solid #f79494;
+
+               input {
+                  padding: 5px;
+                  width: 70%;
+                  background-color: #f74141;
+                  border: 1px solid #f79494;
+               }
+
+               button {
+                  width: 30%;
+                  padding: 5px;
+                  border: 1px solid #f79494;
+                  background-color: #ff7b00;
+                  color: white;
+                  font-weight: bold;
+                  cursor: pointer;
+               }
+            }
+
+            #comments {
+               font-weight: 500;
+               height: 160px;
+               text-align: center;
+               overflow-y: scroll;
+
+               p {
+                  margin-top: 5px;
+               }
+            }
+
+
+         }
+
+         #post_footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 40px;
+
+            img {
+               cursor: pointer;
+            }
+         }
+      }
+   }
+}
+
+#profile {
+   font-family: 'Dosis', sans-serif;
+   width: 350px;
+   background-color: #F8CB2E;
+   border: 5px solid #f79494;
+   border-radius: 40px;
+   height: 400px;
+   margin-top: 50px;
+   display: none;
+
+   #username_of_profile {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+      background-color: #ff7b00;
+      border-radius: 35px 35px 0 0;
+      padding: 20px;
+      border-bottom: 5px solid #f79494;
+   }
+
+   #date_of_creation {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      border-bottom: 5px solid #f79494;
+      font-weight: bold;
+      padding: 5px;
+   }
+
+   #badges {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 10px;
+      border-bottom: 5px solid #f79494;
+
+      p {
+         font-weight: 500;
+      }
+   }
+
+   #log_out {
+      width: 200px;
+      font-size: 1.1rem;
+      padding: 5px;
+      border-radius: 10px;
+      border: 3px solid #f79494;
+      background-color: #f74141;
+      cursor: pointer;
+      display: block;
+      color: white;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 150px;
+   }
+}
+
+#add_post_div {
+   font-family: 'Dosis', sans-serif;
+   width: 350px;
+   background-color: #F8CB2E;
+   border: 5px solid #f79494;
+   border-radius: 40px;
+   height: 400px;
+   margin-top: 50px;
+   display: none;
+
+   input {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.3rem;
+      width: 80%;
+      padding: 10px;
+      border-radius: 15px;
+      border: 2px solid #012443;
+      margin-top: 40px;
+   }
+
+   button {
+      cursor: pointer;
+      margin-top: 220px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      border: 2px solid #f79494;
+      width: 80%;
+      padding: 5px;
+      background-color: #f74141;
+      color: white;
+      font-size: 1.1rem;
+   }
+}
+
+.register {
+   font-family: 'Dosis', sans-serif;
+   width: 350px;
+   background-color: #F8CB2E;
+   border: 5px solid #f79494;
+   border-radius: 40px;
+   height: 400px;
    position: absolute;
    top: 50%;
    left: 50%;
@@ -28,81 +356,67 @@ body {
    flex-direction: column;
    display: none;
 
-   h1 {
-      font-size: 4.5rem;
-      color: #dae7ff;
+   #close_div {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border-radius: 100px;
+      border: 3px solid #f79494;
+      background-color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
    }
 
-   p {
-      font-size: 1.2rem;
-      color: rgb(158, 158, 158);
-
-      span {
-         color: #bcd2ff;
-         cursor: pointer;
-      }
+   .error_messages {
+      visibility: hidden;
    }
 
    input,
-   button {
-      width: 300px;
-      margin-top: 10px;
-      padding: 5px 10px;
-      border: 1px solid white;
-      border-radius: 10px;
+   #create_account_button {
+      width: 80%;
+      padding: 5px;
+      margin-top: 5px;
+      border-radius: 20px;
+      border: 2px solid #f79494;
    }
 
-   button {
+   #create_account_button {
+      background-color: #f74141;
       cursor: pointer;
-      background-color: #bcd2ff;
-      color: black;
    }
+
 }
 
-.register {
-   position: absolute;
-   width: 100%;
-   height: 100vh;
-   background-color: #bcd2ff;
-   background-image: url(/assets/texture.webp);
-   z-index: 100;
+.white_bg {
+   transition: .3s;
+}
 
-   .register_content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+.white_bg:hover {
+   border-radius: 10px;
+   background-color: white;
+   padding: 3px;
+}
 
-      input,
-      button {
-         width: 300px;
-         margin-top: 10px;
-         padding: 5px 10px;
-         border: 1px solid white;
-         border-radius: 10px;
-      }
-
-      button {
-         cursor: pointer;
-         background-color: #bcd2ff;
-         color: black;
-      }
-
-      span {
-         width: 50px;
-         height: 50px;
-         cursor: pointer;
-         border: 1px solid white;
-         border-radius: 50px;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         margin-left: 250px;
-         margin-bottom: 10px;
+@media (max-width:400px) {
+   .container {
+      .content {
+         p {
+            font-size: 1rem;
+         }
       }
    }
+
+   .register {
+      width: 300px;
+
+      input {
+         width: 90%;
+      }
+
+      #create_account_button {
+         width: 261px;
+      }
+   }
+
 }
