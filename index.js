@@ -21,6 +21,8 @@ let isSurnameValidated = false;
 let isUsernameValidated = false;
 let isPasswordValidated = false;
 let error_messages = document.getElementsByClassName("error_messages");
+let remove_error = document.getElementsByClassName('remove_error')
+
 let erorrs = [
     "You must enter a name.",
     "Name can't contain special characters.",
@@ -94,3 +96,8 @@ create_account_button === null || create_account_button === void 0 ? void 0 : cr
     }
     document.cookie = `username=${username.value}`;
 });
+for (let i = 0; i < remove_error.length; i++) {
+    remove_error[i].addEventListener('click', () => {
+        error_messages[i].style.visibility = 'hidden'
+    })
+}

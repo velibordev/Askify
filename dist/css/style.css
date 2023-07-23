@@ -17,7 +17,7 @@
 }
 
 body {
-  background-color: #f74141;
+  background-color: #1A1A1A;
 }
 
 * {
@@ -72,22 +72,17 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
 }
 .container .content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-family: "Gasoek One", sans-serif;
-  color: #012443;
-}
-.container .content h1 span {
-  color: #F8CB2E;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #012443;
+  color: #9a42e2;
 }
 .container .content p {
   font-family: "Dosis", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   width: 38ch;
   text-align: center;
-  color: #1a1a1a;
+  color: gainsboro;
 }
 .container .content p span {
   color: white;
@@ -100,11 +95,12 @@ body::-webkit-scrollbar-thumb {
   padding: 4px;
   margin-top: 10px;
   border-radius: 5px;
-  background-color: #012443;
-  border: 1px solid black;
+  background-color: white;
   font-weight: 500;
   font-size: 1rem;
-  color: white;
+}
+.container .content input:focus {
+  outline: 2px solid #9a42e2;
 }
 .container .content button {
   font-family: "Dosis", sans-serif;
@@ -112,11 +108,14 @@ body::-webkit-scrollbar-thumb {
   width: 300px;
   padding: 4px;
   margin-top: 10px;
-  background-color: #F8CB2E;
+  background-color: #9a42e2;
   cursor: pointer;
   border: 1px solid black;
   font-weight: 500;
   border-radius: 5px;
+}
+.container .content button:focus {
+  outline: 2px solid #9a42e2;
 }
 
 .room_container {
@@ -312,10 +311,10 @@ body::-webkit-scrollbar-thumb {
 .register {
   font-family: "Dosis", sans-serif;
   width: 350px;
-  background-color: #F8CB2E;
-  border: 5px solid #f79494;
-  border-radius: 40px;
-  height: 400px;
+  background-color: transparent;
+  border: 3px solid #9a42e2;
+  border-radius: 20px;
+  height: 420px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -326,30 +325,52 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   display: none;
 }
-.register #close_div {
+.register .register_wrapper_small {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.register .register_wrapper_small p {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 35px;
+}
+.register .register_wrapper_small #close_div {
   width: 40px;
   height: 40px;
   cursor: pointer;
-  border-radius: 100px;
-  border: 3px solid #f79494;
-  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #9a42e2;
+  background-color: transparent;
+  color: white;
   position: absolute;
   top: 20px;
   right: 20px;
 }
 .register .error_messages {
   visibility: hidden;
+  color: white;
 }
 .register input,
 .register #create_account_button {
-  width: 80%;
-  padding: 5px;
-  margin-top: 5px;
-  border-radius: 20px;
-  border: 2px solid #f79494;
+  font-family: "Dosis", sans-serif;
+  border: none;
+  width: 300px;
+  padding: 4px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.register input:focus,
+.register #create_account_button:focus {
+  outline: 2px solid #9a42e2;
 }
 .register #create_account_button {
-  background-color: #f74141;
+  background-color: #9a42e2;
+  color: white;
   cursor: pointer;
 }
 
