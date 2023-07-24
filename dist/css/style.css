@@ -22,7 +22,7 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ff7b00 transparent;
+  scrollbar-color: #6548fe transparent;
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -35,7 +35,7 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #ff7b00;
+  background-color: #6548fe;
   border-radius: 20px;
   border: 3px solid transparent;
 }
@@ -51,7 +51,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #ff7b00;
+  background-color: #6548fe;
   /* color of the scroll thumb */
   border-radius: 20px;
   /* roundness of the scroll thumb */
@@ -74,7 +74,7 @@ body::-webkit-scrollbar-thumb {
 .container .content h1 {
   font-size: 3.5rem;
   font-family: "Gasoek One", sans-serif;
-  color: #9a42e2;
+  color: #6548fe;
 }
 .container .content p {
   font-family: "Dosis", sans-serif;
@@ -100,7 +100,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 1rem;
 }
 .container .content input:focus {
-  outline: 2px solid #9a42e2;
+  outline: 2px solid #6548fe;
 }
 .container .content button {
   font-family: "Dosis", sans-serif;
@@ -108,14 +108,15 @@ body::-webkit-scrollbar-thumb {
   width: 300px;
   padding: 4px;
   margin-top: 10px;
-  background-color: #9a42e2;
+  background-color: #6548fe;
   cursor: pointer;
   border: 1px solid black;
   font-weight: 500;
   border-radius: 5px;
+  color: white;
 }
 .container .content button:focus {
-  outline: 2px solid #9a42e2;
+  outline: 2px solid #6548fe;
 }
 
 .room_container {
@@ -125,9 +126,11 @@ body::-webkit-scrollbar-thumb {
 }
 .room_container aside {
   width: 75px;
-  height: 100vh;
-  background-color: #012443;
-  border-right: 5px solid #f79494;
+  height: 400px;
+  background-color: #272727;
+  border: 2px solid #6548fe;
+  margin-left: 5px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -145,23 +148,32 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-evenly;
   align-items: center;
 }
+.room_container main .some_wrap {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
 .room_container main #content_div {
   font-family: "Dosis", sans-serif;
   width: 350px;
-  background-color: #F8CB2E;
-  border: 5px solid #f79494;
-  border-radius: 40px;
+  background-color: #1A1A1A;
+  border: 4px solid #6548fe;
+  border-radius: 20px;
   height: 400px;
   margin-top: 50px;
+  color: white;
 }
 .room_container main #content_div #div_header {
   display: flex;
   align-items: center;
   padding: 20px;
-  background-color: rgb(255, 123, 0);
+  background-color: #272727;
   justify-content: space-between;
-  border-radius: 35px 35px 0 0;
-  border-bottom: 5px solid #f79494;
+  border-radius: 15px 15px 0 0;
+  border-bottom: 5px solid #6548fe;
 }
 .room_container main #content_div #div_header p {
   color: white;
@@ -169,33 +181,34 @@ body::-webkit-scrollbar-thumb {
   font-weight: bold;
 }
 .room_container main #content_div #q_div {
-  border-bottom: 5px solid #f79494;
+  border-bottom: 2px solid #6548fe;
   padding: 10px;
   height: 80px;
   overflow-y: scroll;
-  text-align: center;
+  text-align: left;
 }
 .room_container main #content_div #c_div {
-  border-bottom: 5px solid #f79494;
+  border-bottom: 2px solid #6548fe;
 }
 .room_container main #content_div #c_div #post_comment {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 5px solid #f79494;
+  border-bottom: 2px solid #6548fe;
 }
 .room_container main #content_div #c_div #post_comment input {
   padding: 5px;
   width: 70%;
-  background-color: #f74141;
-  border: 1px solid #f79494;
+  background-color: #272727;
+  color: white;
+  border: 1px solid #6548fe;
 }
 .room_container main #content_div #c_div #post_comment button {
   width: 30%;
   padding: 5px;
-  border: 1px solid #f79494;
-  background-color: #ff7b00;
+  border: 1px solid #6548fe;
+  background-color: #272727;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -203,17 +216,22 @@ body::-webkit-scrollbar-thumb {
 .room_container main #content_div #c_div #comments {
   font-weight: 500;
   height: 160px;
-  text-align: center;
+  text-align: left;
+  padding: 5px;
   overflow-y: scroll;
 }
 .room_container main #content_div #c_div #comments p {
+  background-color: #272727;
   margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
 }
 .room_container main #content_div #post_footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   height: 40px;
+  padding-top: 15px;
 }
 .room_container main #content_div #post_footer img {
   cursor: pointer;
@@ -222,9 +240,9 @@ body::-webkit-scrollbar-thumb {
 #profile {
   font-family: "Dosis", sans-serif;
   width: 350px;
-  background-color: #F8CB2E;
-  border: 5px solid #f79494;
-  border-radius: 40px;
+  background-color: #272727;
+  border: 2px solid #6548fe;
+  border-radius: 20px;
   height: 400px;
   margin-top: 50px;
   display: none;
@@ -234,25 +252,27 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
-  background-color: #ff7b00;
+  background-color: #272727;
   border-radius: 35px 35px 0 0;
   padding: 20px;
-  border-bottom: 5px solid #f79494;
+  border-bottom: 2px solid #6548fe;
 }
 #profile #date_of_creation {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: 5px solid #f79494;
+  border-bottom: 2px solid #6548fe;
   font-weight: bold;
   padding: 5px;
+  color: white;
 }
 #profile #badges {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 10px;
-  border-bottom: 5px solid #f79494;
+  border-bottom: 2px solid #6548fe;
 }
 #profile #badges p {
   font-weight: 500;
@@ -262,8 +282,8 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.1rem;
   padding: 5px;
   border-radius: 10px;
-  border: 3px solid #f79494;
-  background-color: #f74141;
+  border: 1px solid white;
+  background-color: #6548fe;
   cursor: pointer;
   display: block;
   color: white;
@@ -275,8 +295,8 @@ body::-webkit-scrollbar-thumb {
 #add_post_div {
   font-family: "Dosis", sans-serif;
   width: 350px;
-  background-color: #F8CB2E;
-  border: 5px solid #f79494;
+  background-color: #272727;
+  border: 2px solid #6548fe;
   border-radius: 40px;
   height: 400px;
   margin-top: 50px;
@@ -293,17 +313,23 @@ body::-webkit-scrollbar-thumb {
   border: 2px solid #012443;
   margin-top: 40px;
 }
+#add_post_div p {
+  color: white;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
 #add_post_div button {
   cursor: pointer;
-  margin-top: 220px;
+  margin-top: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  border: 2px solid #f79494;
+  border: 0;
   width: 80%;
   padding: 5px;
-  background-color: #f74141;
+  background-color: #6548fe;
   color: white;
   font-size: 1.1rem;
 }
@@ -312,7 +338,7 @@ body::-webkit-scrollbar-thumb {
   font-family: "Dosis", sans-serif;
   width: 350px;
   background-color: transparent;
-  border: 3px solid #9a42e2;
+  border: 3px solid #6548fe;
   border-radius: 20px;
   height: 420px;
   position: absolute;
@@ -341,7 +367,7 @@ body::-webkit-scrollbar-thumb {
   height: 40px;
   cursor: pointer;
   border-radius: 10px;
-  border: 2px solid #9a42e2;
+  border: 2px solid #6548fe;
   background-color: transparent;
   color: white;
   position: absolute;
@@ -366,10 +392,10 @@ body::-webkit-scrollbar-thumb {
 }
 .register input:focus,
 .register #create_account_button:focus {
-  outline: 2px solid #9a42e2;
+  outline: 2px solid #6548fe;
 }
 .register #create_account_button {
-  background-color: #9a42e2;
+  background-color: #6548fe;
   color: white;
   cursor: pointer;
 }
