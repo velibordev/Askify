@@ -166,6 +166,12 @@ body::-webkit-scrollbar-thumb {
   margin-top: 50px;
   color: white;
 }
+.room_container main #content_div .upvotes,
+.room_container main #content_div .downvotes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .room_container main #content_div #div_header {
   display: flex;
   align-items: center;
