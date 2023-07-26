@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,7 +17,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 // firebase config end
 
 let close_div = document.querySelector("#close_div");
@@ -44,6 +42,11 @@ let isUsernameValidated = false;
 let isPasswordValidated = false;
 let error_messages = document.getElementsByClassName("error_messages");
 let remove_error = document.getElementsByClassName('remove_error')
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+let yyyy = today.getFullYear();
+today = dd + '.' + mm + '.' + yyyy + '.';
 
 let erorrs = [
     "You must enter a name.",
@@ -103,17 +106,19 @@ create_account_button === null || create_account_button === void 0 ? void 0 : cr
             isPasswordValidated = true;
             error_messages[3].style.visibility = 'hidden';
         }
+        const userRef = collection(db, "users");
         if (isNameValidated == true && isSurnameValidated == true && isPasswordValidated == true && isUsernameValidated == true) {
-            const userRef = doc(db, "users");
-            setDoc(doc(userRef, "users"), {
+
+            const data = {
                 name: real_name.value,
                 surname: surname.value,
                 username: username.value,
-                password: password.value
-            });
+                password: password.value,
+                date: today
+            }
+            addDoc(userRef, data)
             setTimeout(function redirect() {
-                window.location.href = 'room.html';
-
+                window.location.href = 'room.html'
             }, 2000)
 
         }

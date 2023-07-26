@@ -114,9 +114,13 @@ body::-webkit-scrollbar-thumb {
   font-weight: 500;
   border-radius: 5px;
   color: white;
+  transition: 0.3s;
 }
 .container .content button:focus {
   outline: 2px solid #6548fe;
+}
+.container .content button:hover {
+  background-color: #5335eb;
 }
 
 .room_container {
@@ -149,7 +153,6 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 .room_container main .some_wrap {
-  width: 60%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -163,7 +166,6 @@ body::-webkit-scrollbar-thumb {
   border: 4px solid #6548fe;
   border-radius: 20px;
   height: 400px;
-  margin-top: 50px;
   color: white;
 }
 .room_container main #content_div .upvotes,
@@ -250,7 +252,6 @@ body::-webkit-scrollbar-thumb {
   border: 2px solid #6548fe;
   border-radius: 20px;
   height: 400px;
-  margin-top: 50px;
   display: none;
 }
 #profile #username_of_profile {
@@ -288,7 +289,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.1rem;
   padding: 5px;
   border-radius: 10px;
-  border: 1px solid white;
+  border: 0;
   background-color: #6548fe;
   cursor: pointer;
   display: block;
@@ -296,6 +297,10 @@ body::-webkit-scrollbar-thumb {
   margin-left: auto;
   margin-right: auto;
   margin-top: 150px;
+  transition: 0.3s;
+}
+#profile #log_out:hover {
+  background-color: #5335eb;
 }
 
 #add_post_div {
@@ -303,9 +308,8 @@ body::-webkit-scrollbar-thumb {
   width: 350px;
   background-color: #272727;
   border: 2px solid #6548fe;
-  border-radius: 40px;
+  border-radius: 20px;
   height: 400px;
-  margin-top: 50px;
   display: none;
 }
 #add_post_div input {
@@ -338,6 +342,10 @@ body::-webkit-scrollbar-thumb {
   background-color: #6548fe;
   color: white;
   font-size: 1.1rem;
+  transition: 0.3s;
+}
+#add_post_div button:hover {
+  background-color: #5335eb;
 }
 
 .register {
@@ -379,6 +387,10 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 20px;
   right: 20px;
+  transition: 0.3s;
+}
+.register .register_wrapper_small #close_div:hover {
+  background-color: #5335eb;
 }
 .register .error_messages {
   visibility: hidden;
@@ -404,6 +416,10 @@ body::-webkit-scrollbar-thumb {
   background-color: #6548fe;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
+}
+.register #create_account_button:hover {
+  background-color: #5335eb;
 }
 
 .white_bg {
