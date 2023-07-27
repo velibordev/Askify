@@ -18,7 +18,7 @@
       </aside>
       <main>
          <div class="some_wrap">
-            <div id="content_div">
+            <!-- <div id="content_div">
                <div id="div_header">
                   <p>Mina</p>
                   <p>4:20/23</p>
@@ -47,9 +47,9 @@
                      <img src="assets/up-arrow.png" alt="" width="50px" style="transform: rotate(180deg);">
                      <p>12</p>
                   </div>
-                  <img src="assets/image(18).png" alt="" width="30px">
+                  <img src="assets/image(18).png" alt="" width="30px" id="report">
                </div>
-            </div>
+            </div> -->
          </div>
          <div id="profile">
             <div id="username_of_profile">Minataur</div>
@@ -60,13 +60,14 @@
             <div id="badges">
                <p>badges:</p>
                <img src="assets/profile.png" alt="" width="30px" title="Valid Account Badge">
-               <img src="assets/king.png" alt="" width="30px" title="OG Badge (account created before 1.8.2023.)">
+               <img src="assets/king.png" alt="" id="og_badge" width="30px"
+                  title="OG Badge (account created before 1.8.2023.)">
             </div>
             <button id="log_out">Log out</button>
          </div>
          <div id="add_post_div">
             <input type="text" placeholder="Question" id="post_question">
-            <p>Be serious. Please post some serious questions. :D</p>
+            <p id="post_message">Be serious. Please post some serious questions. :D</p>
             <button id="send_question">Post question</button>
          </div>
       </main>

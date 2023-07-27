@@ -40,7 +40,17 @@ add_file_icon.addEventListener("click", () => {
     profile.style.display = "none";
     some_wrap.style.display = "none";
 });
+function deleteAllCookies() {
+    const cookies = document.cookie.split("; ");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    }
+}
 log_out.addEventListener("click", () => {
+    deleteAllCookies();
     window.location.href = "index.html";
 });
 all_posts.addEventListener("click", () => {
@@ -57,10 +67,19 @@ const db = getFirestore(app);
 const userRef = collection(db, "users");
 const querySnapshot = await getDocs(userRef);
 const created_at = document.getElementById('created_at')
+const targetDate = new Date('2023-08-01');
 querySnapshot.forEach((doc) => {
     const userData = doc.data();
     if (userData.username === username_of_profile.textContent) {
         created_at.innerText = userData.date;
+        const dateParts = userData.date.split('.');
+        const userDate = new Date(`${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`);
+
+        if (userDate.getTime() < targetDate.getTime()) {
+            og_badge.style.display = 'flex';
+        } else {
+            og_badge.style.display = 'none';
+        }
     }
 });
 
@@ -73,9 +92,64 @@ send_question.addEventListener('click', () => {
         question: post_question.value,
     }
     addDoc(postRef, data)
+    let post_message = document.getElementById('post_message')
+    post_message.innerText = 'Posted successfully, refreshing in couple of seconds.'
+    setTimeout(function reload() {
+        window.location.reload()
+    }, 2000)
 })
 const postRef = collection(db, "posts");
 const postSnapshot = await getDocs(postRef);
 postSnapshot.forEach((doc) => {
-    console.log("Document data:", doc.data());
+    const postData = doc.data();
+    const content_div = document.createElement('div')
+    const div_header = document.createElement('div')
+    const div_header_creator = document.createElement('p')
+    const div_header_date = document.createElement('p')
+    const q_div = document.createElement('div')
+    const q_div_h2 = document.createElement('h2')
+    const c_div = document.createElement('div')
+    const post_footer = document.createElement('div')
+    const post_image_up = document.createElement('img')
+    post_image_up.style.width = '50px'
+    post_image_up.src = 'assets/up-arrow.png'
+    const post_image_down = document.createElement('img')
+    post_image_down.style.width = '50px'
+    post_image_down.src = 'assets/up-arrow.png'
+    post_image_down.style.transform = 'rotate(180deg)'
+    const post_image_report = document.createElement('img')
+    post_image_report.style.width = '30px'
+    post_image_report.src = 'assets/image(18).png'
+    post_footer.appendChild(post_image_up)
+    post_footer.appendChild(post_image_down)
+    post_footer.appendChild(post_image_report)
+
+    post_footer.setAttribute('id', 'post_footer');
+    c_div.setAttribute('id', 'c_div');
+    const post_comment_input = document.createElement('input')
+    const post_comment_button = document.createElement('button')
+    post_comment_input.placeholder = 'Your comment'
+    post_comment_button.innerText = 'Post'
+    const post_comment = document.createElement('div')
+    post_comment.setAttribute('id', 'post_comment')
+    post_comment.appendChild(post_comment_input)
+    post_comment.appendChild(post_comment_button)
+    const comments = document.createElement('div')
+    comments.setAttribute('id', 'comments')
+    c_div.appendChild(post_comment)
+    c_div.appendChild(comments)
+    q_div_h2.innerText = postData.question
+    q_div.appendChild(q_div_h2)
+    q_div.setAttribute('id', 'q_div');
+    div_header_creator.innerText = postData.creator
+    div_header_date.innerText = postData.date
+    div_header.appendChild(div_header_creator)
+    div_header.appendChild(div_header_date)
+    content_div.setAttribute('id', 'content_div');
+    div_header.setAttribute('id', 'div_header');
+    content_div.appendChild(div_header)
+    content_div.appendChild(q_div)
+    content_div.appendChild(c_div)
+    content_div.appendChild(post_footer)
+    some_wrap.appendChild(content_div)
 });

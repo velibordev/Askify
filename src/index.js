@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -107,20 +107,19 @@ create_account_button === null || create_account_button === void 0 ? void 0 : cr
             error_messages[3].style.visibility = 'hidden';
         }
         const userRef = collection(db, "users");
-        if (isNameValidated == true && isSurnameValidated == true && isPasswordValidated == true && isUsernameValidated == true) {
-
+        if (isNameValidated && isSurnameValidated && isPasswordValidated && isUsernameValidated) {
             const data = {
                 name: real_name.value,
                 surname: surname.value,
                 username: username.value,
                 password: password.value,
                 date: today
-            }
-            addDoc(userRef, data)
+            };
+            const userId = username.value;
+            setDoc(doc(userRef, userId), data);
             setTimeout(function redirect() {
-                window.location.href = 'room.html'
-            }, 2000)
-
+                window.location.href = 'room.html';
+            }, 2000);
         }
     }
     document.cookie = `username=${username.value}`;
@@ -130,3 +129,24 @@ for (let i = 0; i < remove_error.length; i++) {
         error_messages[i].style.visibility = 'hidden'
     })
 }
+let log_in_to_account = document.getElementById('log_in_to_account')
+let log_in_username = document.getElementById('log_in_username')
+let log_in_password = document.getElementById('log_in_password')
+let log_in_error = document.getElementById('log_in_error')
+const userRef = collection(db, "users");
+const querySnapshot = await getDocs(userRef);
+querySnapshot.forEach((doc) => {
+    const userData = doc.data();
+    log_in_to_account.addEventListener('click', () => {
+        if (log_in_username.value == userData.username && log_in_password.value == userData.password) {
+            document.cookie = `username=${log_in_username.value}`;
+            log_in_error.style.visibility = 'visible'
+            log_in_error.innerText = 'Redirecting, please wait.'
+            setTimeout(function redirect() {
+                window.location.href = 'room.html';
+            }, 2000);
+        } else {
+            log_in_error.style.visibility = 'visible'
+        }
+    })
+});

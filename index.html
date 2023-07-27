@@ -14,10 +14,11 @@
       <div class="content">
          <h1>Ask<span>ify</span></h1>
          <p>Effortlessly discover knowledge with ease.</p>
-         <input type="text" placeholder="Username" style="margin-top: 20px;">
-         <input type="text" placeholder="Password">
-         <button>Log in</button>
-         <p style="margin-top: 20px;">Don't have an account?<span id="create_account_link"> Register now.</span></p>
+         <input type="text" placeholder="Username" style="margin-top: 20px;" id="log_in_username">
+         <input type="password" placeholder="Password" id="log_in_password">
+         <button id="log_in_to_account">Log in</button>
+         <p id="log_in_error">Something is incorect, please try again.</p>
+         <p>Don't have an account?<span id="create_account_link"> Register now.</span></p>
       </div>
    </div>
    <div class="register">
@@ -31,7 +32,7 @@
       <p class="error_messages">error</p>
       <input type="text" id="username" placeholder="Username" class="remove_error">
       <p class="error_messages">error</p>
-      <input type="text" id="password" placeholder="Password" class="remove_error">
+      <input type="password" id="password" placeholder="Password" class="remove_error">
       <p class="error_messages">error</p>
       <button id="create_account_button">Register</button>
    </div>
