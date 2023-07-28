@@ -171,6 +171,7 @@ body::-webkit-scrollbar-thumb {
   height: 400px;
   color: white;
   margin-top: 50px;
+  margin-bottom: 20px;
 }
 .room_container main #content_div .upvotes,
 .room_container main #content_div .downvotes {
@@ -282,8 +283,17 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 10px;
   border-bottom: 2px solid #6548fe;
+}
+#profile #badges .badge_row {
+  padding: 5px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#profile #badges .badge_row .badge_description {
+  color: gray;
 }
 #profile #badges #og_badge {
   display: none;
@@ -303,7 +313,7 @@ body::-webkit-scrollbar-thumb {
   color: white;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
+  margin-top: 50px;
   transition: 0.3s;
 }
 #profile #log_out:hover {

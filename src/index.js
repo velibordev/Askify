@@ -117,6 +117,7 @@ create_account_button === null || create_account_button === void 0 ? void 0 : cr
             };
             const userId = username.value;
             setDoc(doc(userRef, userId), data);
+            confetti()
             setTimeout(function redirect() {
                 window.location.href = 'room.html';
             }, 2000);
@@ -142,6 +143,7 @@ querySnapshot.forEach((doc) => {
             document.cookie = `username=${log_in_username.value}`;
             log_in_error.style.visibility = 'visible'
             log_in_error.innerText = 'Redirecting, please wait.'
+            confetti()
             setTimeout(function redirect() {
                 window.location.href = 'room.html';
             }, 2000);

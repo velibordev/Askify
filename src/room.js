@@ -93,6 +93,8 @@ send_question.addEventListener('click', () => {
     }
     addDoc(postRef, data)
     let post_message = document.getElementById('post_message')
+    post_question.value = ''
+    confetti()
     post_message.innerText = 'Posted successfully, refreshing in couple of seconds.'
     setTimeout(function reload() {
         window.location.reload()
@@ -104,6 +106,8 @@ postSnapshot.forEach((doc) => {
     const postData = doc.data();
     const content_div = document.createElement('div')
     const div_header = document.createElement('div')
+    const up_vote_div = document.createElement('div')
+    const down_vote_div = document.createElement('div')
     const div_header_creator = document.createElement('p')
     const div_header_date = document.createElement('p')
     const q_div = document.createElement('div')

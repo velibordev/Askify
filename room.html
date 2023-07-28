@@ -4,8 +4,9 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="dist/css/style.css">
+   <link rel="stylesheet" href="/dist/css/style.css">
    <link rel="shortcut icon" href="assets/letter-a.png" type="image/x-icon">
+   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
    <title>Askify room</title>
 </head>
 
@@ -15,6 +16,7 @@
          <div id="all_posts"><img src="assets/file(1).png" alt="" width="50px" class="white_bg"></div>
          <div id="profile_icon"><img src="assets/user(3).png" alt="" width="50px" class="white_bg"></div>
          <div id="add_file_icon"><img src="assets/add(3).png" alt="" width="50px" class="white_bg"></div>
+         <div id="add_file_icon"><img src="assets/funnel.png" alt="" width="50px" class="white_bg"></div>
       </aside>
       <main>
          <div class="some_wrap">
@@ -58,10 +60,28 @@
                <p id="created_at">not available</p>
             </div>
             <div id="badges">
-               <p>badges:</p>
-               <img src="assets/profile.png" alt="" width="30px" title="Valid Account Badge">
-               <img src="assets/king.png" alt="" id="og_badge" width="30px"
-                  title="OG Badge (account created before 1.8.2023.)">
+               <div id="bagdes_rows">
+                  <div class="badge_row" style="border-bottom: 2px solid #6548fe; padding: 5px;">
+                     <p>Badges:</p>
+                  </div>
+                  <div class="badge_row">
+                     <img src="assets/profile.png" alt="" width="30px">
+                     <p>Valid Badge <span class="badge_description">(Account created successfully.)</span></p>
+                  </div>
+                  <div class="badge_row">
+                     <img src="assets/king.png" alt="" id="og_badge" width="30px">
+                     <p>OG Badge <span class="badge_description">(Account created before 1.8.2023.)</span></p>
+                  </div>
+                  <div class="badge_row">
+                     <img src="assets/bug.png" alt="" width="30px">
+                     <p>Bug Hunter Badge <span class="badge_description">(You reported a valid bug.)</span></p>
+                  </div>
+                  <div class="badge_row">
+                     <img src="assets/concept.png" alt="" width="30px">
+                     <p>Concept Badge <span class="badge_description">(You suggested a concept.)</span></p>
+                  </div>
+               </div>
+
             </div>
             <button id="log_out">Log out</button>
          </div>
