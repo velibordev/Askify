@@ -117,7 +117,13 @@ body::-webkit-scrollbar-thumb {
   font-weight: 500;
   border-radius: 5px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.3s;
+}
+.container .content button img {
+  margin-left: 10px;
 }
 .container .content button:focus {
   outline: 2px solid #6548fe;
@@ -290,7 +296,17 @@ body::-webkit-scrollbar-thumb {
   width: 350px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+#profile #badges .badge_row img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+#profile #badges .badge_row p {
+  margin-right: 10px;
+  text-align: left;
+  width: 280px;
 }
 #profile #badges .badge_row .badge_description {
   color: gray;
@@ -467,6 +483,21 @@ body::-webkit-scrollbar-thumb {
   body {
     overflow: hidden;
   }
+  #badges {
+    width: 248px;
+  }
+  #badges #bagdes_rows {
+    width: 240px;
+  }
+  #badges #bagdes_rows .badge_row {
+    width: 240px;
+  }
+  #badges #bagdes_rows .badge_row img {
+    margin-right: 13px;
+  }
+  #profile #log_out {
+    margin-top: 20px;
+  }
   #content_div,
   .some_wrap {
     width: 250px;
@@ -484,5 +515,20 @@ body::-webkit-scrollbar-thumb {
   #profile,
   #add_post_div {
     width: 220px;
+  }
+  #badges {
+    width: 218px;
+  }
+  #badges #bagdes_rows {
+    width: 218px;
+  }
+  #badges #bagdes_rows .badge_row {
+    width: 218px;
+  }
+  #badges #bagdes_rows .badge_row img {
+    margin-right: 13px;
+  }
+  #profile #log_out {
+    margin-top: 20px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -138,17 +138,29 @@ const userRef = collection(db, "users");
 const querySnapshot = await getDocs(userRef);
 querySnapshot.forEach((doc) => {
     const userData = doc.data();
-    log_in_to_account.addEventListener('click', () => {
+    function attemptLogin() {
         if (log_in_username.value == userData.username && log_in_password.value == userData.password) {
             document.cookie = `username=${log_in_username.value}`;
-            log_in_error.style.visibility = 'visible'
-            log_in_error.innerText = 'Redirecting, please wait.'
-            confetti()
+            log_in_error.style.visibility = 'visible';
+            log_in_error.innerText = 'Redirecting, please wait.';
+            confetti();
             setTimeout(function redirect() {
                 window.location.href = 'room.html';
             }, 2000);
         } else {
-            log_in_error.style.visibility = 'visible'
+            log_in_error.style.visibility = 'visible';
         }
-    })
+    }
+
+    // Event listener for the "Enter" key press
+    function onEnterKeyPress(event) {
+        if (event.key === 'Enter') {
+            attemptLogin();
+        }
+    }
+
+    // Add event listeners
+    log_in_to_account.addEventListener('click', attemptLogin);
+    log_in_username.addEventListener('keypress', onEnterKeyPress);
+    log_in_password.addEventListener('keypress', onEnterKeyPress);
 });

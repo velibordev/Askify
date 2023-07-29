@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { doc, getDocs } from "firebase/firestore";
+import { doc, getDocs, setDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -85,20 +85,31 @@ querySnapshot.forEach((doc) => {
 
 // sent to question to firestore
 send_question.addEventListener('click', () => {
-    const postRef = collection(db, "posts");
-    const data = {
-        creator: username_of_profile.innerText,
-        date: today,
-        question: post_question.value,
+    if (post_question.value != '' && post_question.value.length > 20) {
+        let post_message = document.getElementById('post_message')
+        const postRef = collection(db, "posts");
+        const data = {
+            creator: username_of_profile.innerText,
+            date: today,
+            question: post_question.value,
+        }
+        // addDoc(postRef, data)
+        const postId = post_question.value;
+        setDoc(doc(postRef, postId), data);
+        post_question.value = ''
+        confetti()
+        post_message.innerText = 'Posted successfully, refreshing in couple of seconds.'
+        setTimeout(function reload() {
+            window.location.reload()
+        }, 2000)
+    } else if (post_question.value == '') {
+        let post_message = document.getElementById('post_message')
+        post_message.innerText = 'You must enter a question.'
+    } else {
+        let post_message = document.getElementById('post_message')
+        post_message.innerText = 'Your question must be at least 20 characters long.'
     }
-    addDoc(postRef, data)
-    let post_message = document.getElementById('post_message')
-    post_question.value = ''
-    confetti()
-    post_message.innerText = 'Posted successfully, refreshing in couple of seconds.'
-    setTimeout(function reload() {
-        window.location.reload()
-    }, 2000)
+
 })
 const postRef = collection(db, "posts");
 const postSnapshot = await getDocs(postRef);
@@ -122,10 +133,12 @@ postSnapshot.forEach((doc) => {
     post_image_down.src = 'assets/up-arrow.png'
     post_image_down.style.transform = 'rotate(180deg)'
     const post_image_report = document.createElement('img')
+    up_vote_div.appendChild(post_image_up)
+    down_vote_div.appendChild(post_image_down)
     post_image_report.style.width = '30px'
     post_image_report.src = 'assets/image(18).png'
-    post_footer.appendChild(post_image_up)
-    post_footer.appendChild(post_image_down)
+    post_footer.appendChild(up_vote_div)
+    post_footer.appendChild(down_vote_div)
     post_footer.appendChild(post_image_report)
 
     post_footer.setAttribute('id', 'post_footer');
