@@ -35,7 +35,7 @@ let erorrs = [
     "You must enter a password.",
     "Password must be at least 8 characters long.",
 ];
-let name_regex = (/^[A-Za-z]+$/);
+let name_regex = /^[A-Za-zČčĆćĐđŠšŽžĐđ]+$/;
 create_account_button === null || create_account_button === void 0 ? void 0 : create_account_button.addEventListener('click', () => {
     for (let i = 0; i < error_messages.length; i++) {
         if (real_name.value == '') {
